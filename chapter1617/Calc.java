@@ -1,6 +1,8 @@
 package chapter1617;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Calc extends JFrame {
@@ -73,8 +75,9 @@ public class Calc extends JFrame {
         cp.add(yellowPanel, BorderLayout.SOUTH);
 
         // listener
-        CalcListener listener = new CalcListener(this);
-        calculate.addActionListener(listener);
+        calculate.addActionListener(e -> calculatePressed());
+
+        quit.addActionListener(e -> System.exit(0));
 
         pack();
         setVisible(true);
@@ -105,4 +108,5 @@ public class Calc extends JFrame {
     public static void main(String[] args) {
         Calc calc = new Calc();
     }
+
 }
